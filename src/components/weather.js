@@ -7,12 +7,13 @@ class Weather extends React.Component{
         if(this.props.clouds === 0){
             chocolateMsg = "This is a miracle. You will see the sun! Let's eat chocolate to celebrate";
         } else if(this.props.clouds < 5){
-            chocolateMsg = "What do you expect? Let's grab some chocolate to feel better";
+            chocolateMsg = "Not exactly a summer weather, eh? Let's grab some chocolate to feel better";
         } else{
-            chocolateMsg = "What do you expect? It's cloudy and cold. Let's grab some chocolate to feel better";
+            chocolateMsg = "What do you expect? It's cloudy. Let's grab some chocolate to feel better";
         }
 
         return(
+
 
         <div className="weather__info">
 
@@ -23,13 +24,26 @@ class Weather extends React.Component{
 
         }
         
-        {this.props.temperature && <p>Temperature: {this.props.temperature}</p>}
-        
-        {this.props.description && <p>Conditions: {this.props.description}</p>}
+        {this.props.temperature && <p className="weather__key">Temperature: 
+        <span className="weather__value"> { this.props.temperature }</span>
+        </p>
 
-        {this.props.clouds && <p>{chocolateMsg}</p>}
+        }
         
-        { this.props.error && <p>Alert: {this.props.error}</p>}
+        {this.props.description && <p className="weather__key">Conditions:  
+        <span className="weather__value">{ this.props.description }</span>
+        </p>
+
+        }
+
+        {this.props.clouds && <p className="weather__key">Verdict: 
+        <span className="weather__value"> {chocolateMsg}</span>
+        <img src={require('./chocolate.jpg')} alt="Chocolate Verdict" />
+        </p>
+
+        }
+        
+        { this.props.error && <p className="error__key">Alert: {this.props.error}</p>}
         
         </div>
 

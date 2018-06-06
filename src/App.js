@@ -35,6 +35,7 @@ class App extends React.Component{
     .then(data => {
     
     if(city && country){
+      
       this.setState({
         temperature: data.main.temp,
         city: data.name,
